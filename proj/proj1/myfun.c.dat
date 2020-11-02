@@ -1,0 +1,74 @@
+#include "my.h"
+
+/**
+*	函数名：input()
+*	函数功能：从键盘接收数据
+**/
+
+recorder* input()
+{
+	recorder *pt;
+	pt = (recorder*)malloc(sizeof(recorder));
+	printf("please input id:\n");
+	fscanf(stdin,"%d",&(pt->id));
+	printf("please input name:\n");
+	fscanf(stdin,"%s",pt->name);
+	printf("please input htel:\n");
+	fscanf(stdin,"%s",pt->htel);
+	printf("please input tel:\n");
+	fscanf(stdin,"%s",pt->tel);
+	return pt;
+	
+}
+
+/**
+*	函数名：save()
+*	函数功能：将接受的数据以追写的方式写入user.dat文件当中
+**/
+
+int save(recorder *pt){
+	FILE *fp;
+	if((fp = fopen("user.dat","a"))==NULL){
+		fp=fopen("user.dat","w+");
+	}
+	fprintf(fp,"%d %s %s %s\n", pt->id,pt->name,pt->tel,pt->htel);
+	fclose(fp);
+	return 0;
+}
+
+/** 
+*	函数名：mysort()
+*	函数功能：对姓名按照用户选择进行排升、降序
+*	实现设想：通过调用compare参数来比较两个元素的大小
+*
+int compare(const void *arg1, const void *arg2){
+	user_p ptr1 = (recorder*)arg1;
+	user_p ptr2 = (recorder*)arg2;
+	if(ptr1->name > ptr2->name){
+		return 1;
+	}else if(ptr1->name < ptr2->name){
+		return -1;
+	}else {
+		return 0;
+	}
+
+
+void mysort(){
+	
+	char name[100];
+	memset(name, '\0', 100);
+	int n,i; //记录name数组填充的大小
+	fprintf(stdout,"please input the number of name!\n");
+	fscanf(stdin,"%d",&n);
+	for(i=0;i<n;i++){
+		name[0]=*(pt->name);
+		pt=pt->pNext;     
+	}
+	
+}
+**/
+
+
+
+	
+	

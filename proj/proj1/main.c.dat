@@ -1,0 +1,12 @@
+#include "my.h"
+#include "myfun.c"
+
+int main()
+{	
+	recorder *pt;
+	pt=input();
+	save(pt);
+	return 0;
+}
+
+	
